@@ -1,10 +1,23 @@
-# My Personal Project
+# CPSC 210 Project
 
-## A subtitle
+## *Digital Recipe Book*
 
-A *bulleted* list:
-- item 1
-- item 2
-- item 3
+This project is envisioned as a robust digital platform designed to cater specifically to 
+home cooks and culinary students. The core functionality of this application will revolve around creating,
+editing, and favoriting recipes, making it a centralized hub for food enthusiasts.
 
-An example of text with **bold** and *italic* fonts.  
+Users will have the ability to meticulously manage their recipes, ensuring easy access and 
+organization of their culinary creations. The project will address a common issue faced by individuals 
+who, like myself, have embarked on culinary journeys and often find themselves struggling to recall 
+cooking instructions for various dishes. With this digital recipe book, users will be able to maintain 
+a well-organized and accessible collection of their favorite recipes, effectively eliminating the 
+frustration of forgetting crucial cooking steps.
+
+## *User Stories*
+
+- As a user, I want to be able to add my recipes to the digital recipe book with 
+- As a user, I want to be able to edit my recipes.
+- As a user, I want to be able to have an ingredient list.
+- As a user, I want to be able to view all my favourite recipes.
+- As a user, I want to be able to add a cuisine to my recipe.
+
