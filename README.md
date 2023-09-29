@@ -15,7 +15,8 @@ frustration of forgetting crucial cooking steps.
 
 ## *User Stories*
 
-- As a user, I want to be able to add my recipes to the digital recipe book with 
+- As a user, I want to be able to add my recipes to the digital recipe book with the number of
+ ingredients and cuisine.
 - As a user, I want to be able to edit my recipes.
 - As a user, I want to be able to have an ingredient list.
 - As a user, I want to be able to view all my favourite recipes.
