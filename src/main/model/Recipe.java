@@ -14,6 +14,14 @@ public class Recipe {
         ingredients = new ArrayList<>();
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCuisine(String cuisine) {
+        this.cuisine = cuisine;
+    }
+
     public String getName() {
         return name;
     }
