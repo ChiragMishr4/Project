@@ -31,9 +31,12 @@ public class RecipeBook {
         }
     }
 
-    public void removeRecipe(Recipe r) {
-        if (recipes.contains(r)) {
-            recipes.remove(r);
+    public void removeRecipe(String s) {
+        for (Recipe r : recipes) {
+            if (r.getName().equals(s)) {
+                recipes.remove(r);
+                break;
+            }
         }
     }
 

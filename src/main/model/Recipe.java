@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Recipe {
     private List<String> ingredients;
+    private List<String> cookingInstructions;
     private String cuisine;
     private String name;
 
@@ -12,6 +13,7 @@ public class Recipe {
         this.name = name;
         this.cuisine = cuisine;
         ingredients = new ArrayList<>();
+        cookingInstructions = new ArrayList<>();
     }
 
     public void setName(String name) {
@@ -44,5 +46,9 @@ public class Recipe {
         if (ingredients.contains(ingredient)) {
             ingredients.remove(ingredient);
         }
+    }
+
+    public void addCookingInstructions(String cookingInstruction) {
+        cookingInstructions.add(cookingInstruction);
     }
 }
