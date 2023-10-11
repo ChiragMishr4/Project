@@ -39,6 +39,14 @@ public class RecipeTest {
     }
 
     @Test
+    void testAddSameIngredient() {
+        r1.addIngredient("chicken");
+        r1.addIngredient("chicken");
+        assertEquals(1, r1.getIngredients().size());
+        assertEquals("chicken", r1.getIngredients().get(0));
+    }
+
+    @Test
     void testAddIngredientMultiple() {
         r1.addIngredient("chicken");
         r1.addIngredient("mango");
@@ -55,6 +63,15 @@ public class RecipeTest {
     }
 
     @Test
+    void testRemoveSameIngredient() {
+        r1.addIngredient("chicken");
+        r1.removeIngredient("chicken");
+        r1.removeIngredient("chicken");
+        assertEquals(0, r1.getIngredients().size());
+        assertTrue(r1.getIngredients().isEmpty());
+    }
+
+    @Test
     void testRemoveIngredientsMultiple() {
         r1.addIngredient("chicken");
         r1.addIngredient("mango");
@@ -64,5 +81,11 @@ public class RecipeTest {
         assertEquals("mango", r1.getIngredients().get(0));
         r1.removeIngredient("mango");
         assertEquals(0, r1.getIngredients().size());
+    }
+
+    @Test
+    void testAddCookingInstructions() {
+        r1.addCookingInstructions("Step 1");
+        assertEquals("Step 1", r1.getCookingInstructions().get(0));
     }
 }

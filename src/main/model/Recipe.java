@@ -36,6 +36,10 @@ public class Recipe {
         return ingredients;
     }
 
+    public List<String> getCookingInstructions() {
+        return cookingInstructions;
+    }
+
     public void addIngredient(String ingredient) {
         if (!ingredients.contains(ingredient)) {
             ingredients.add(ingredient);
@@ -51,4 +55,6 @@ public class Recipe {
     public void addCookingInstructions(String cookingInstruction) {
         cookingInstructions.add(cookingInstruction);
     }
+
+
 }
