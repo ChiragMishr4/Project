@@ -6,6 +6,8 @@ import java.util.List;
 public class Recipe {
     private List<String> ingredients;
     private List<String> cookingInstructions;
+    private CookingInstructions cookingInstruction;
+    private List<CookingInstructions> instructions;
     private String cuisine;
     private String name;
 
@@ -52,8 +54,18 @@ public class Recipe {
         }
     }
 
-    public void addCookingInstructions(String cookingInstruction) {
-        cookingInstructions.add(cookingInstruction);
+    public void addCookingInstruction(String s, int i) {
+        cookingInstruction = new CookingInstructions(s, i);
+        instructions.add(cookingInstruction);
+    }
+
+    public void removeCookingInstruction(int s) {
+        for (CookingInstructions c : instructions) {
+            if (c.getId() == s) {
+                instructions.remove(c);
+                break;
+            }
+        }
     }
 
 

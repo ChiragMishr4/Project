@@ -1,6 +1,8 @@
 package ui;
 
+import model.CookingInstructions;
 import model.Recipe;
+import model.RecipeBook;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -8,6 +10,7 @@ import java.util.Scanner;
 public class DigitalRecipeBookApp {
 
     private Scanner input;
+    private RecipeBook recipeBook;
 
     public DigitalRecipeBookApp() {
         init();
@@ -34,6 +37,7 @@ public class DigitalRecipeBookApp {
 
     public void init() {
         input = new Scanner(System.in);
+        recipeBook = new RecipeBook();
     }
 
     public void displayMenu() {
@@ -41,7 +45,6 @@ public class DigitalRecipeBookApp {
         System.out.println("\nSelect from:");
         System.out.println("\ta -> Add a Recipe");
         System.out.println("\tr -> Remove a Recipe");
-        System.out.println("\te -> Edit a Recipe");
         System.out.println("\tv -> View all Recipes");
         System.out.println("\tq -> Quit");
     }
@@ -50,9 +53,7 @@ public class DigitalRecipeBookApp {
         if (command.equals("a")) {
             addRecipe();
         } else if (command.equals("r")) {
-            //removeRecipe();
-        } else if (command.equals("e")) {
-            //editRecipe();
+            removeRecipe();
         } else if (command.equals("v")) {
             //viewRecipe();
         }
@@ -73,7 +74,7 @@ public class DigitalRecipeBookApp {
 
         do {
             System.out.println("Would You Like to Add the Required Ingredients?");
-            System.out.println("Y/N?");
+            System.out.println("Y/N");
             String command = input.next();
             command = command.toLowerCase(Locale.ROOT);
             if (command.equals("y")) {
@@ -90,5 +91,31 @@ public class DigitalRecipeBookApp {
                 r1.addIngredient(ingredient);
             }
         } while (keepGoing1);
+        addCookingInstructions(r1);
     }
+
+    public void addCookingInstructions(Recipe r) {
+        System.out.println("Would you like to add a Cooking Instruction?");
+        System.out.println("Y//N");
+        String command = input.next();
+        command = command.toLowerCase(Locale.ROOT);
+        int i = 0;
+        if (command.equals("y")) {
+            System.out.println("Please Enter the Cooking Instruction!");
+            String instruction = input.next();
+            i++;
+            r.addCookingInstruction(instruction, i);
+        } else {
+            recipeBook.addRecipe(r);
+            displayMenu();
+        }
+    }
+
+    public void removeRecipe() {
+        System.out.println("Enter the Name of the Recipe You Would Like to Remove!");
+        String name = input.next();
+        recipeBook.removeRecipe(name);
+    }
+
+
 }

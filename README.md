@@ -17,8 +17,7 @@ frustration of forgetting crucial cooking steps.
 
 - As a user, I want to be able to add my recipes to the digital recipe book along with the ingredients required
  and it's respective cuisine.
-- As a user, I want to be able to edit my recipes.
 - As a user, I want to be able to have an ingredient list.
-- As a user, I want to be able to view all my favourite recipes.
-- As a user, I want to be able to add a cuisine to my recipe.
+- As a user, I want to be able to view all the recipes.
+- As a user, I want to be able to remove a recipe from the digital recipe book.
 

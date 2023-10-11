@@ -13,14 +13,13 @@ public class RecipeBookTest {
 
     @BeforeEach
     void runBefore() {
-        testBook = new RecipeBook("Chirag");
+        testBook = new RecipeBook();
         r1 = new Recipe("abc", "def");
         r2 = new Recipe("Pasta", "Italian");
     }
 
     @Test
     void testConstructor() {
-        assertEquals("Chirag", testBook.getName());
         assertEquals(0, testBook.getRecipes().size());
     }
 

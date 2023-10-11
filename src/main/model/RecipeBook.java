@@ -5,16 +5,10 @@ import java.util.List;
 
 public class RecipeBook {
 
-    private String userName;
     private List<Recipe> recipes;
 
-    public RecipeBook(String name) {
-        this.userName = name;
+    public RecipeBook() {
         recipes = new ArrayList<>();
-    }
-
-    public String getName() {
-        return userName;
     }
 
     public List<String> getRecipes() {
