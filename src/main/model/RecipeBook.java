@@ -7,10 +7,12 @@ public class RecipeBook {
 
     private List<Recipe> recipes;
 
+    //EFFECTS : constructs a Recipe object.
     public RecipeBook() {
         recipes = new ArrayList<>();
     }
 
+    //EFFECTS : returns list of all recipes.
     public List<Recipe> getRecipes() {
         List<Recipe> recipesName = new ArrayList<>();
         for (Recipe i : recipes) {
@@ -19,12 +21,18 @@ public class RecipeBook {
         return recipesName;
     }
 
+    //MODIFIES : this
+    //EFFECTS : adds Recipe to list of recipes if
+    //          not already in list.
     public void addRecipe(Recipe r) {
         if (!recipes.contains(r)) {
             recipes.add(r);
         }
     }
 
+    //MODIFIES : this
+    //EFFECTS : removes Recipe from list of recipes if
+    //          already in list.
     public void removeRecipe(String s) {
         for (Recipe r : recipes) {
             if (r.getName().equals(s)) {
