@@ -15,7 +15,7 @@ public class CookingInstructionsTest {
 
     @Test
     void testConstructor() {
-        assertEquals("abc", instructionsTest.getInstructions());
+        assertEquals("abc", instructionsTest.getInstruction());
         assertEquals(1, instructionsTest.getId());
     }
 
@@ -23,7 +23,7 @@ public class CookingInstructionsTest {
     void testAddInstructionsOnce() {
         CookingInstructions instructionsTest2 = new CookingInstructions("def", 2);
         instructionsTest.addInstruction(instructionsTest2);
-        assertEquals("def", instructionsTest.getInstructions().get(0));
+        assertEquals("def", instructionsTest.getInstructions().get(0).getInstruction());
     }
 
     @Test
@@ -33,8 +33,8 @@ public class CookingInstructionsTest {
         instructionsTest.addInstruction(instructionsTest2);
         instructionsTest.addInstruction(instructionsTest3);
         assertEquals(2, instructionsTest.getInstructions().size());
-        assertEquals("def", instructionsTest.getInstructions().get(0));
-        assertEquals("dfe", instructionsTest.getInstructions().get(1));
+        assertEquals("def", instructionsTest.getInstructions().get(0).getInstruction());
+        assertEquals("dfe", instructionsTest.getInstructions().get(1).getInstruction());
     }
 
 

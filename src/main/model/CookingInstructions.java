@@ -32,6 +32,10 @@ public class CookingInstructions {
         return instructions;
     }
 
+    public String getInstruction() {
+        return instruction;
+    }
+
     public int getId() {
         return id;
     }
