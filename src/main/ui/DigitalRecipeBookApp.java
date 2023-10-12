@@ -11,6 +11,8 @@ public class DigitalRecipeBookApp {
 
     private Scanner input;
     private RecipeBook recipeBook;
+    private int idGen = 0;
+    private boolean keepGoing2 = false;
 
     public DigitalRecipeBookApp() {
         init();
@@ -83,12 +85,11 @@ public class DigitalRecipeBookApp {
                 keepGoing1 = false;
             } else {
                 System.out.println("Didn't recognize that!");
-                addRecipe();
+                displayMenu();
             }
             if (keepGoing1) {
                 System.out.println("Enter the Name of the ingredient!");
                 String ingredient = input.nextLine();
-                input.nextLine();
                 r1.addIngredient(ingredient);
             }
         } while (keepGoing1);
@@ -96,9 +97,6 @@ public class DigitalRecipeBookApp {
     }
 
     public void addCookingInstructions(Recipe r) {
-        boolean keepGoing2 = false;
-        int i = 0;
-
         do {
             System.out.println("Would you like to add a Cooking Instruction?");
             System.out.println("Y//N");
@@ -108,12 +106,16 @@ public class DigitalRecipeBookApp {
                 keepGoing2 = true;
                 System.out.println("Please Enter the Cooking Instruction!");
                 String instruction = input.nextLine();
-                i += 1;
-                r.addCookingInstruction(instruction, i);
+                idGen += 1;
+                r.addCookingInstruction(instruction, idGen);
                 addCookingInstructions(r);
             } else if (command.equals("n")) {
                 keepGoing2 = false;
                 recipeBook.addRecipe(r);
+                idGen = 0;
+            } else {
+                System.out.println("Didn't Recognize That!");
+                displayMenu();
             }
         } while (keepGoing2);
     }
@@ -131,6 +133,8 @@ public class DigitalRecipeBookApp {
 
     public void displayRecipes() {
         for (Recipe r : recipeBook.getRecipes()) {
+            System.out.println("===============================================");
+            System.out.println("Recipe Name : ");
             System.out.println(r.getName());
             System.out.println("Required Ingredients : ");
             for (String s : r.getIngredients()) {
@@ -138,8 +142,9 @@ public class DigitalRecipeBookApp {
             }
             System.out.println("Cooking Instructions : ");
             for (CookingInstructions c : r.getCookingInstructions()) {
-                System.out.println("Step " + c.getId() + ": " + c.getInstructions());
+                System.out.println("Step " + c.getId() + ": " + c.getInstruction());
             }
+            System.out.println("===============================================");
         }
     }
 }

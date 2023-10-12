@@ -71,6 +71,9 @@ public class RecipeBookTest {
         testBook.removeRecipe("abc");
         assertEquals(1, testBook.getRecipes().size());
         assertEquals("Pasta", testBook.getRecipes().get(0).getName());
+        testBook.removeRecipe("abc");
+        assertEquals(1, testBook.getRecipes().size());
+        assertEquals("Pasta", testBook.getRecipes().get(0).getName());
         testBook.removeRecipe("Pasta");
         assertTrue(testBook.getRecipes().isEmpty());
     }

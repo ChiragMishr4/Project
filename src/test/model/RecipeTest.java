@@ -125,6 +125,9 @@ public class RecipeTest {
         r1.removeCookingInstruction(1);
         assertEquals("Chop Veg", r1.getCookingInstructions().get(0).getInstruction());
         assertEquals(2, r1.getCookingInstructions().get(0).getId());
+        r1.removeCookingInstruction(1);
+        assertEquals("Chop Veg", r1.getCookingInstructions().get(0).getInstruction());
+        assertEquals(2, r1.getCookingInstructions().get(0).getId());
         r1.removeCookingInstruction(2);
         assertTrue(r1.getCookingInstructions().isEmpty());
         r1.removeCookingInstruction(3);
