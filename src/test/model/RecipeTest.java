@@ -85,26 +85,49 @@ public class RecipeTest {
 
     @Test
     void testGetCookingInstructions() {
-
+        assertEquals(0, r1.getCookingInstructions().size());
     }
 
     @Test
     void testAddCookingInstructionsOnce() {
-
+        r1.addCookingInstruction("Preheat Oven", 1);
+        assertEquals("Preheat Oven", r1.getCookingInstructions().get(0).getInstruction());
+        assertEquals(1, r1.getCookingInstructions().get(0).getId());
     }
 
     @Test
     void testAddCookingInstructionsMultiple() {
-
+        r1.addCookingInstruction("Preheat Oven", 1);
+        assertEquals("Preheat Oven", r1.getCookingInstructions().get(0).getInstruction());
+        assertEquals(1, r1.getCookingInstructions().get(0).getId());
+        r1.addCookingInstruction("Chop Veg", 2);
+        assertEquals("Chop Veg", r1.getCookingInstructions().get(1).getInstruction());
+        assertEquals(2, r1.getCookingInstructions().get(1).getId());
     }
 
     @Test
     void testRemoveCookingInstructionsOnce() {
-
+        r1.addCookingInstruction("Preheat Oven", 1);
+        assertEquals("Preheat Oven", r1.getCookingInstructions().get(0).getInstruction());
+        assertEquals(1, r1.getCookingInstructions().get(0).getId());
+        r1.removeCookingInstruction(1);
+        assertTrue(r1.getCookingInstructions().isEmpty());
     }
 
     @Test
     void testRemoveCookingInstructionsMultiple() {
-
+        r1.addCookingInstruction("Preheat Oven", 1);
+        assertEquals("Preheat Oven", r1.getCookingInstructions().get(0).getInstruction());
+        assertEquals(1, r1.getCookingInstructions().get(0).getId());
+        r1.addCookingInstruction("Chop Veg", 2);
+        assertEquals("Chop Veg", r1.getCookingInstructions().get(1).getInstruction());
+        assertEquals(2, r1.getCookingInstructions().get(1).getId());
+        r1.removeCookingInstruction(1);
+        assertEquals("Chop Veg", r1.getCookingInstructions().get(0).getInstruction());
+        assertEquals(2, r1.getCookingInstructions().get(0).getId());
+        r1.removeCookingInstruction(2);
+        assertTrue(r1.getCookingInstructions().isEmpty());
+        r1.removeCookingInstruction(3);
+        assertTrue(r1.getCookingInstructions().isEmpty());
     }
 }
