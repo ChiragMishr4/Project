@@ -11,10 +11,10 @@ public class RecipeBook {
         recipes = new ArrayList<>();
     }
 
-    public List<String> getRecipes() {
-        List<String> recipesName = new ArrayList<>();
+    public List<Recipe> getRecipes() {
+        List<Recipe> recipesName = new ArrayList<>();
         for (Recipe i : recipes) {
-            recipesName.add(i.getName());
+            recipesName.add(i);
         }
         return recipesName;
     }

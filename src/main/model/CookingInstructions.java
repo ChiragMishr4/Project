@@ -28,8 +28,8 @@ public class CookingInstructions {
         }
     }
 
-    public String getInstructions() {
-        return instruction;
+    public List<CookingInstructions> getInstructions() {
+        return instructions;
     }
 
     public int getId() {

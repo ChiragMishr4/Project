@@ -5,7 +5,6 @@ import java.util.List;
 
 public class Recipe {
     private List<String> ingredients;
-    private List<String> cookingInstructions;
     private CookingInstructions cookingInstruction;
     private List<CookingInstructions> instructions;
     private String cuisine;
@@ -15,7 +14,7 @@ public class Recipe {
         this.name = name;
         this.cuisine = cuisine;
         ingredients = new ArrayList<>();
-        cookingInstructions = new ArrayList<>();
+        instructions = new ArrayList<>();
     }
 
     public void setName(String name) {
@@ -38,8 +37,8 @@ public class Recipe {
         return ingredients;
     }
 
-    public List<String> getCookingInstructions() {
-        return cookingInstructions;
+    public List<CookingInstructions> getCookingInstructions() {
+        return instructions;
     }
 
     public void addIngredient(String ingredient) {
