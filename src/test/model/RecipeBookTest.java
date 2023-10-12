@@ -27,7 +27,7 @@ public class RecipeBookTest {
     void testAddRecipeOnce() {
         testBook.addRecipe(r1);
         assertEquals(1, testBook.getRecipes().size());
-        assertEquals("abc", testBook.getRecipes().get(0));
+        assertEquals("abc", testBook.getRecipes().get(0).getName());
     }
 
     @Test
@@ -35,8 +35,18 @@ public class RecipeBookTest {
         testBook.addRecipe(r1);
         testBook.addRecipe(r2);
         assertEquals(2, testBook.getRecipes().size());
-        assertEquals("abc", testBook.getRecipes().get(0));
-        assertEquals("Pasta", testBook.getRecipes().get(1));
+        assertEquals("abc", testBook.getRecipes().get(0).getName());
+        assertEquals("Pasta", testBook.getRecipes().get(1).getName());
+    }
+
+    @Test
+    void testAddRecipeSame() {
+        testBook.addRecipe(r1);
+        assertEquals(1, testBook.getRecipes().size());
+        assertEquals("abc", testBook.getRecipes().get(0).getName());
+        testBook.addRecipe(r1);
+        assertEquals(1, testBook.getRecipes().size());
+        assertEquals("abc", testBook.getRecipes().get(0).getName());
     }
 
     @Test
@@ -45,6 +55,10 @@ public class RecipeBookTest {
         testBook.removeRecipe("abc");
         assertEquals(0, testBook.getRecipes().size());
         assertTrue(testBook.getRecipes().isEmpty());
+        testBook.removeRecipe("abc");
+        assertEquals(0, testBook.getRecipes().size());
+        assertTrue(testBook.getRecipes().isEmpty());
+
     }
 
     @Test
@@ -52,11 +66,11 @@ public class RecipeBookTest {
         testBook.addRecipe(r1);
         testBook.addRecipe(r2);
         assertEquals(2, testBook.getRecipes().size());
-        assertEquals("abc", testBook.getRecipes().get(0));
-        assertEquals("Pasta", testBook.getRecipes().get(1));
+        assertEquals("abc", testBook.getRecipes().get(0).getName());
+        assertEquals("Pasta", testBook.getRecipes().get(1).getName());
         testBook.removeRecipe("abc");
         assertEquals(1, testBook.getRecipes().size());
-        assertEquals("Pasta", testBook.getRecipes().get(0));
+        assertEquals("Pasta", testBook.getRecipes().get(0).getName());
         testBook.removeRecipe("Pasta");
         assertTrue(testBook.getRecipes().isEmpty());
     }

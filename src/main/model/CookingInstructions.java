@@ -19,15 +19,6 @@ public class CookingInstructions {
         instructions.add(c);
     }
 
-    public void removeInstruction(int s) {
-        for (CookingInstructions c : instructions) {
-            if (c.getId() == s) {
-                instructions.remove(c);
-                break;
-            }
-        }
-    }
-
     public List<CookingInstructions> getInstructions() {
         return instructions;
     }

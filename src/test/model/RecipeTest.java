@@ -82,4 +82,29 @@ public class RecipeTest {
         r1.removeIngredient("mango");
         assertEquals(0, r1.getIngredients().size());
     }
+
+    @Test
+    void testGetCookingInstructions() {
+
+    }
+
+    @Test
+    void testAddCookingInstructionsOnce() {
+
+    }
+
+    @Test
+    void testAddCookingInstructionsMultiple() {
+
+    }
+
+    @Test
+    void testRemoveCookingInstructionsOnce() {
+
+    }
+
+    @Test
+    void testRemoveCookingInstructionsMultiple() {
+
+    }
 }
