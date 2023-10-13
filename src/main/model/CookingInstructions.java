@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+//Represents cooking instructions with an instruction and an id.
 public class CookingInstructions {
 
     private String instruction;

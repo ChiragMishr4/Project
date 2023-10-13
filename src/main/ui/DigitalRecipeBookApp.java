@@ -7,6 +7,7 @@ import model.RecipeBook;
 import java.util.Locale;
 import java.util.Scanner;
 
+//Digital Recipe Book Application.
 public class DigitalRecipeBookApp {
 
     private Scanner input;
@@ -14,11 +15,14 @@ public class DigitalRecipeBookApp {
     private int idGen = 0;
     private boolean keepGoing2 = false;
 
+    //EFFECTS :  runs DigitalRecipeBookApp.
     public DigitalRecipeBookApp() {
         init();
         runApp();
     }
 
+    //MODIFIES : this
+    //EFFECTS : processes user input
     public void runApp() {
         boolean keepGoing = true;
         String command = null;
@@ -37,11 +41,14 @@ public class DigitalRecipeBookApp {
         System.out.println("\nGoodbye!");
     }
 
+    //MODIFIES : this
+    //EFFECTS : initializes fields
     public void init() {
         input = new Scanner(System.in);
         recipeBook = new RecipeBook();
     }
 
+    // EFFECTS: displays menu of options to user
     public void displayMenu() {
         System.out.println("Welcome To The Digital Recipe Book!");
         System.out.println("\nSelect from:");
@@ -51,6 +58,8 @@ public class DigitalRecipeBookApp {
         System.out.println("\tq -> Quit");
     }
 
+    // MODIFIES: this
+    // EFFECTS: processes user command
     public void processCommand(String command) {
         if (command.equals("a")) {
             addRecipe();
@@ -61,6 +70,8 @@ public class DigitalRecipeBookApp {
         }
     }
 
+    //MODIFIES : this
+    //EFFECTS : takes user input and adds recipe to recipe book.
     public void addRecipe() {
         System.out.println("Enter the Name of Your Dish!");
         String name = input.nextLine();
@@ -71,6 +82,8 @@ public class DigitalRecipeBookApp {
         addIngredient(r1);
     }
 
+    //MODIFIES : this
+    //EFFECTS : takes user input and adds ingredients to recipe.
     public void addIngredient(Recipe r1) {
         boolean keepGoing1 = false;
 
@@ -96,6 +109,8 @@ public class DigitalRecipeBookApp {
         addCookingInstructions(r1);
     }
 
+    //MODIFIES : this
+    //EFFECTS : takes user input and adds CookingInstructions to recipe.
     public void addCookingInstructions(Recipe r) {
         do {
             System.out.println("Would you like to add a Cooking Instruction?");
@@ -120,17 +135,21 @@ public class DigitalRecipeBookApp {
         } while (keepGoing2);
     }
 
+    //MODIFIES : this
+    //EFFECTS : removes recipe from recipe book.
     public void removeRecipe() {
         System.out.println("Enter the Name of the Recipe You Would Like to Remove!");
         String name = input.next();
         recipeBook.removeRecipe(name);
     }
 
+    //EFFECTS : displays recipes in recipe book.
     public void viewRecipes() {
         System.out.println("Here are your recipes!");
         displayRecipes();
     }
 
+    //EFFECTS : displays recipes with the required ingredients and cooking instructions.
     public void displayRecipes() {
         for (Recipe r : recipeBook.getRecipes()) {
             System.out.println("===============================================");

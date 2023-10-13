@@ -3,6 +3,7 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+//Represents a Recipe having a name, cuisine, list of ingredients and list of cooking instructions.
 public class Recipe {
     private List<String> ingredients;
     private CookingInstructions cookingInstruction;
