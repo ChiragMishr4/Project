@@ -1,10 +1,13 @@
 package model;
 
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 //Represents cooking instructions with an instruction and an id.
-public class CookingInstructions {
+public class CookingInstructions implements Writable {
 
     private String instruction;
     private int id;
@@ -24,5 +27,15 @@ public class CookingInstructions {
     //EFFECTS : returns the id of the object.
     public int getId() {
         return id;
+    }
+
+    @Override
+    public JSONObject toJson() {
+        JSONObject jsonObject = new JSONObject();
+
+        jsonObject.put("instruction", instruction);
+        jsonObject.put("id", id);
+
+        return jsonObject;
     }
 }

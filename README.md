@@ -19,4 +19,6 @@ frustration of forgetting crucial cooking steps.
 - As a user, I want to be able to have an ingredient list.
 - As a user, I want to be able to view all the recipes.
 - As a user, I want to be able to remove a recipe from the digital recipe book.
+- As a user, I want to be able to save my current recipes to file.
+- As a user, I want to be able to load my previous recipes from file.
 

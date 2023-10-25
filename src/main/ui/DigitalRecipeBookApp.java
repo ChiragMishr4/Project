@@ -3,7 +3,11 @@ package ui;
 import model.CookingInstructions;
 import model.Recipe;
 import model.RecipeBook;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -14,6 +18,10 @@ public class DigitalRecipeBookApp {
     private RecipeBook recipeBook;
     private int idGen = 0;
     private boolean keepGoing2 = false;
+
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
+    private static final String json_book = "./data/recipes.json";
 
     //EFFECTS :  runs DigitalRecipeBookApp.
     public DigitalRecipeBookApp() {
@@ -46,6 +54,8 @@ public class DigitalRecipeBookApp {
     public void init() {
         input = new Scanner(System.in);
         recipeBook = new RecipeBook();
+        jsonWriter = new JsonWriter(json_book);
+        jsonReader = new JsonReader(json_book);
     }
 
     // EFFECTS: displays menu of options to user
@@ -55,6 +65,8 @@ public class DigitalRecipeBookApp {
         System.out.println("\ta -> Add a Recipe");
         System.out.println("\tr -> Remove a Recipe");
         System.out.println("\tv -> View all Recipes");
+        System.out.println("\ts -> Save Recipes");
+        System.out.println("\tl -> Load Recipes");
         System.out.println("\tq -> Quit");
     }
 
@@ -67,6 +79,10 @@ public class DigitalRecipeBookApp {
             removeRecipe();
         } else if (command.equals("v")) {
             viewRecipes();
+        } else if (command.equals("s")) {
+            saveRecipes();
+        } else if (command.equals("l")) {
+            loadRecipes();
         }
     }
 
@@ -164,6 +180,27 @@ public class DigitalRecipeBookApp {
                 System.out.println("Step " + c.getId() + ": " + c.getInstruction());
             }
             System.out.println("===============================================");
+        }
+    }
+
+    //EFFECTS: saves the Recipes to file
+    private void saveRecipes() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(recipeBook);
+            jsonWriter.close();
+            System.out.println("Saved Your Recipes!!");
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file");
+        }
+    }
+
+    private void loadRecipes() {
+        try {
+            recipeBook = jsonReader.read();
+            System.out.println("Loaded Recipes!!");
+        } catch (IOException e) {
+            System.out.println("Unable to load recipes");
         }
     }
 }

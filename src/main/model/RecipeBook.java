@@ -1,10 +1,14 @@
 package model;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+import persistence.Writable;
+
 import java.util.ArrayList;
 import java.util.List;
 
 //Represents a RecipeBook that contains a list of recipes.
-public class RecipeBook {
+public class RecipeBook implements Writable {
 
     private List<Recipe> recipes;
 
@@ -43,9 +47,18 @@ public class RecipeBook {
         }
     }
 
+    @Override
+    public JSONObject toJson() {
+        JSONObject json = new JSONObject();
+        json.put("recipes", recipesToJson());
+        return json;
+    }
 
-
-
-
-
+    private JSONArray recipesToJson() {
+        JSONArray jsonArray = new JSONArray();
+        for (Recipe r : recipes) {
+            jsonArray.put(r.toJson());
+        }
+        return jsonArray;
+    }
 }
