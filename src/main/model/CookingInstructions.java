@@ -30,6 +30,7 @@ public class CookingInstructions implements Writable {
     }
 
     @Override
+    //EFFECTS: writes CookingInstructions to json.
     public JSONObject toJson() {
         JSONObject jsonObject = new JSONObject();
 

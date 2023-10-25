@@ -94,6 +94,7 @@ public class Recipe implements Writable {
 
 
     @Override
+    //EFFECTS: writes Recipe to json.
     public JSONObject toJson() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("name", name);
@@ -104,6 +105,7 @@ public class Recipe implements Writable {
         return jsonObject;
     }
 
+    //EFFECTS: returns ingredients as json Array.
     private JSONArray ingredientsToJson() {
         JSONArray jsonArray = new JSONArray();
 
@@ -113,6 +115,7 @@ public class Recipe implements Writable {
         return jsonArray;
     }
 
+    //EFFECTS: returns instructions as json Array.
     private JSONArray instructionsToJson() {
         JSONArray jsonArray = new JSONArray();
 

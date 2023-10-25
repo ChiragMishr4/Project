@@ -195,6 +195,7 @@ public class DigitalRecipeBookApp {
         }
     }
 
+    //EFFECTS: loads recipes from file.
     private void loadRecipes() {
         try {
             recipeBook = jsonReader.read();

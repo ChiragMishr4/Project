@@ -48,12 +48,14 @@ public class RecipeBook implements Writable {
     }
 
     @Override
+    //EFFECTS: writes RecipeBook to json
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
         json.put("recipes", recipesToJson());
         return json;
     }
 
+    //EFFECTS: returns recipes as json Array.
     private JSONArray recipesToJson() {
         JSONArray jsonArray = new JSONArray();
         for (Recipe r : recipes) {

@@ -68,8 +68,8 @@ public class JsonReader {
         wr.addRecipe(r1);
     }
 
-    //MODIFIES:
-    //EFFECTS:
+    //MODIFIES: this
+    //EFFECTS: adds instructions from json to recipe.
     private void addInstructions(Recipe r, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("instructions");
         for (Object json : jsonArray) {
@@ -80,8 +80,8 @@ public class JsonReader {
         }
     }
 
-    //MODIFIES:
-    //EFFECTS:
+    //MODIFIES: this
+    //EFFECTS: adds ingredients from json to recipe.
     private void addIngredients(Recipe r, JSONObject jsonObject) {
         JSONArray jsonArray = jsonObject.getJSONArray("ingredients");
         for (Object json : jsonArray) {
