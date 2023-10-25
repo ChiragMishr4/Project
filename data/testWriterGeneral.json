@@ -1,14 +1,20 @@
 {"recipes": [
     {
-        "instructions": [],
+        "instructions": [{
+            "instruction": "boil water",
+            "id": 1
+        }],
         "name": "abc",
         "cuisine": "def",
-        "ingredients": []
+        "ingredients": ["water"]
     },
     {
-        "instructions": [],
+        "instructions": [{
+            "instruction": "add pasta",
+            "id": 2
+        }],
         "name": "def",
         "cuisine": "xyz",
-        "ingredients": []
+        "ingredients": ["pasta"]
     }
 ]}
