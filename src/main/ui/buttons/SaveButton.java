@@ -20,7 +20,7 @@ public class SaveButton extends JButton implements ActionListener {
         this.addActionListener(this);
         setText("Save Recipes");
         setFocusable(false);
-        setFont(new Font("Arial", Font.PLAIN, 12));
+        setFont(new Font("Arial", Font.BOLD, 12));
     }
 
     @Override

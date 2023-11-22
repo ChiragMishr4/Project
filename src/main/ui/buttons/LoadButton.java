@@ -26,7 +26,8 @@ public class LoadButton extends JButton implements ActionListener {
         jsonReader = new JsonReader(json_book);
         this.addActionListener(this);
         setText("Load Previous Recipes");
-        setFont(new Font("Arial", Font.PLAIN, 12));
+        setFocusable(false);
+        setFont(new Font("Arial", Font.BOLD, 12));
     }
 
     @Override

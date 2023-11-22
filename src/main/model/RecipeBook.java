@@ -4,13 +4,14 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import persistence.Writable;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 //Represents a RecipeBook that contains a list of recipes.
 public class RecipeBook implements Writable {
 
-    private List<Recipe> recipes;
+    private ArrayList<Recipe> recipes;
 
     //EFFECTS : constructs a Recipe object.
     public RecipeBook() {
@@ -18,8 +19,8 @@ public class RecipeBook implements Writable {
     }
 
     //EFFECTS : returns list of all recipes.
-    public List<Recipe> getRecipes() {
-        List<Recipe> recipesName = new ArrayList<>();
+    public ArrayList<Recipe> getRecipes() {
+        ArrayList<Recipe> recipesName = new ArrayList<>();
         for (Recipe i : recipes) {
             recipesName.add(i);
         }
