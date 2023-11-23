@@ -23,7 +23,7 @@ public class JsonReader {
 
     // EFFECTS: reads workroom from file and returns it;
     // throws IOException if an error occurs reading data from file
-    public RecipeBook read() throws IOException {
+    public RecipeBooks read() throws IOException {
         String jsonData = readFile(source);
         JSONObject jsonObject = new JSONObject(jsonData);
         return parseWorkRoom(jsonObject);
@@ -41,20 +41,30 @@ public class JsonReader {
     }
 
     // EFFECTS: parses workroom from JSON object and returns it
-    private RecipeBook parseWorkRoom(JSONObject jsonObject) {
-        RecipeBook wr = new RecipeBook();
-        addRecipes(wr, jsonObject);
+    private RecipeBooks parseWorkRoom(JSONObject jsonObject) {
+        RecipeBooks wr = new RecipeBooks();
+        addRecipeBooks(wr, jsonObject);
         return wr;
+    }
+
+    private void addRecipeBooks(RecipeBooks wr, JSONObject jsonObject) {
+        JSONArray jsonArray = jsonObject.getJSONArray("recipeBooks");
+        for (Object json : jsonArray) {
+            JSONObject nextRecipeBook = (JSONObject) json;
+            addRecipeBook(wr, nextRecipeBook);
+        }
     }
 
     // MODIFIES: wr
     // EFFECTS: parses recipes from JSON object and adds them to RecipeBook
-    private void addRecipes(RecipeBook wr, JSONObject jsonObject) {
+    private void addRecipeBook(RecipeBooks wr, JSONObject jsonObject) {
+        RecipeBook r = new RecipeBook(jsonObject.getString("name"));
         JSONArray jsonArray = jsonObject.getJSONArray("recipes");
         for (Object json : jsonArray) {
-            JSONObject nextThingy = (JSONObject) json;
-            addRecipe(wr, nextThingy);
+            JSONObject k = (JSONObject) json;
+            addRecipe(r, k);
         }
+        wr.addRecipeBook(r);
     }
 
     // MODIFIES: wr

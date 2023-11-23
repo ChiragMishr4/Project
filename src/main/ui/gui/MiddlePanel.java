@@ -9,8 +9,4 @@ public class MiddlePanel extends JPanel {
         super();
     }
 
-    public void setLabel(String s) {
-        String p = "";
-        this.add(new JLabel(s + p));
-    }
 }

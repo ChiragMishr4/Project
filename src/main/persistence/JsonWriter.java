@@ -28,8 +28,8 @@ public class JsonWriter {
 
     // MODIFIES: this
     // EFFECTS: writes JSON representation of RecipeBook to file
-    public void write(RecipeBook recipes) {
-        JSONObject json = recipes.toJson();
+    public void write(RecipeBooks recipeBooks) {
+        JSONObject json = recipeBooks.toJson();
         saveToFile(json.toString(TAB));
     }
 

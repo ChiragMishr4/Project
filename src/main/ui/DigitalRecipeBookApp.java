@@ -3,11 +3,14 @@ package ui;
 import model.CookingInstructions;
 import model.Recipe;
 import model.RecipeBook;
+import model.RecipeBooks;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -16,6 +19,8 @@ public class DigitalRecipeBookApp {
 
     private Scanner input;
     private RecipeBook recipeBook;
+    private RecipeBooks recipeBooks;
+    private List<RecipeBook> recipeBookList;
     private int idGen = 0;
     private boolean keepGoing2 = false;
 
@@ -53,7 +58,11 @@ public class DigitalRecipeBookApp {
     //EFFECTS : initializes fields
     public void init() {
         input = new Scanner(System.in);
-        recipeBook = new RecipeBook();
+        recipeBookList = new ArrayList<>();
+        recipeBook = new RecipeBook("Digital Recipe Book");
+        recipeBookList.add(recipeBook);
+        recipeBooks = new RecipeBooks();
+        recipeBooks.addRecipeBook(recipeBook);
         jsonWriter = new JsonWriter(json_book);
         jsonReader = new JsonReader(json_book);
     }
@@ -187,7 +196,7 @@ public class DigitalRecipeBookApp {
     private void saveRecipes() {
         try {
             jsonWriter.open();
-            jsonWriter.write(recipeBook);
+            jsonWriter.write(recipeBooks);
             jsonWriter.close();
             System.out.println("Saved Your Recipes!!");
         } catch (FileNotFoundException e) {
@@ -198,8 +207,9 @@ public class DigitalRecipeBookApp {
     //EFFECTS: loads recipes from file.
     private void loadRecipes() {
         try {
-            recipeBook = jsonReader.read();
+            recipeBooks = jsonReader.read();
             System.out.println("Loaded Recipes!!");
+            recipeBookList = recipeBooks.getRecipeBooks();
         } catch (IOException e) {
             System.out.println("Unable to load recipes");
         }

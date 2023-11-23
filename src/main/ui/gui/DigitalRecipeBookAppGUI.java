@@ -13,6 +13,7 @@ import java.util.List;
 public class DigitalRecipeBookAppGUI extends JFrame {
 
     private RecipeBook recipeBook;
+    private RecipeBooks recipeBooks;
     private DigitalRecipeBookAppGUI drB;
     private JPanel head = new JPanel();
     private JLabel header = new JLabel("Digital Recipe Book");
@@ -22,8 +23,11 @@ public class DigitalRecipeBookAppGUI extends JFrame {
         super("Digital Recipe Book");
         setSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize()));
         setLayout(new BorderLayout());
-        recipeBook = new RecipeBook();
-        add(new MenuButtons(recipeBook, this), BorderLayout.SOUTH);
+        String s = "Digital Recipe Book";
+        recipeBook = new RecipeBook(s);
+        recipeBooks = new RecipeBooks();
+        recipeBooks.addRecipeBook(recipeBook);
+        add(new MenuButtons(recipeBook, recipeBooks,this), BorderLayout.SOUTH);
         initializeMiddlePanel();
     }
 
@@ -31,9 +35,10 @@ public class DigitalRecipeBookAppGUI extends JFrame {
         panel = new MiddlePanel();
         panel.setBackground(Color.darkGray);
         panel.add(new JLabel(""));
-        panel.setBackground(new Color(232, 93, 4));
+        panel.setLayout(new GridLayout(3,3,20,25));
+        panel.setBackground(new Color(194, 197, 187));
         add(panel, BorderLayout.CENTER);
-        head.setBackground(new Color(220, 47, 2));
+        head.setBackground(new Color(69, 80, 59));
         add(head, BorderLayout.NORTH);
         header.setFont(new Font("Sans-serif", Font.BOLD, 25));
         ImageIcon logo = new ImageIcon("./data/newLogo.png");

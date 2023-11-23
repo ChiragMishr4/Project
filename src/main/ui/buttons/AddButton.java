@@ -13,23 +13,20 @@ import java.util.List;
 
 public class AddButton extends JButton implements ActionListener {
     private RecipeBook recipeBook;
-    private List<String> ingredients;
-    private List<String> instructions;
     private String cuisine;
     private String name;
     private DigitalRecipeBookAppGUI digitalRecipeBook;
+    private List<RecipeBook> recipeBooksList = new ArrayList<>();
     private boolean keepGoing;
     int idGen = 0;
 
     public AddButton(RecipeBook r, DigitalRecipeBookAppGUI drB) {
-        ingredients = new ArrayList<>();
-        instructions = new ArrayList<>();
         this.digitalRecipeBook = drB;
         this.recipeBook = r;
         this.addActionListener(this);
         setText("Add a Recipe");
         setFocusable(false);
-        setFont(new Font("Arial", Font.BOLD, 12));
+        setFont(new Font("Arial", Font.BOLD, 18));
     }
 
     @Override
@@ -38,26 +35,27 @@ public class AddButton extends JButton implements ActionListener {
         name = s;
         String c = JOptionPane.showInputDialog("Enter the cuisine of this dish!");
         cuisine = c;
+        Recipe r = new Recipe(name, cuisine);
         int f = JOptionPane.showConfirmDialog(null,
                 "Would you like to add the required ingredients?",
                 "", JOptionPane.YES_NO_OPTION);
         if (f == 0) {
             keepGoing = true;
-            addIngredients();
+            addIngredients(r);
         }
         int j = JOptionPane.showConfirmDialog(null,
                 "Would you like to add Cooking Instructions?",
                 "", JOptionPane.YES_NO_OPTION);
         if (j == 0) {
-            addCookingInstructions();
+            addCookingInstructions(r);
         }
-        recipeCreator();
+        recipeCreator(r);
     }
 
-    public void addIngredients() {
+    public void addIngredients(Recipe r) {
         do {
             String i = JOptionPane.showInputDialog("Enter the name of the ingredient: ");
-            ingredients.add(i);
+            r.addIngredient(i);
             int f = JOptionPane.showConfirmDialog(null,
                     "Would you like to add another ingredient?",
                     "", JOptionPane.YES_NO_OPTION);
@@ -67,11 +65,12 @@ public class AddButton extends JButton implements ActionListener {
         } while (keepGoing);
     }
 
-    public void addCookingInstructions() {
+    public void addCookingInstructions(Recipe r) {
         boolean keepGoing1 = true;
         do {
             String c = JOptionPane.showInputDialog("Enter the cooking instruction: ");
-            instructions.add(c);
+            idGen += 1;
+            r.addCookingInstruction(c, idGen);
             int f = JOptionPane.showConfirmDialog(null,
                     "Would you like to add another Cooking Instruction?",
                     "", JOptionPane.YES_NO_OPTION);
@@ -81,16 +80,9 @@ public class AddButton extends JButton implements ActionListener {
         } while (keepGoing1);
     }
 
-    public void recipeCreator() {
-        Recipe r = new Recipe(name, cuisine);
-        for (String s : ingredients) {
-            r.addIngredient(s);
-        }
-        for (String i : instructions) {
-            r.addCookingInstruction(i, idGen);
-            idGen += 1;
-        }
+    public void recipeCreator(Recipe r) {
         recipeBook.addRecipe(r);
+        recipeBooksList.add(recipeBook);
         digitalRecipeBook.updatePanel(recipeBook.getRecipes());
     }
 }

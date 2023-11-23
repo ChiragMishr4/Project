@@ -12,9 +12,11 @@ public class MenuButtons extends JPanel {
 
     private RecipeBook recipeBook;
     private DigitalRecipeBookAppGUI digitalRecipeBookAppGUI;
+    private RecipeBooks recipeBooks;
 
-    public MenuButtons(RecipeBook r, DigitalRecipeBookAppGUI drB) {
+    public MenuButtons(RecipeBook r, RecipeBooks recipeBooks,  DigitalRecipeBookAppGUI drB) {
         this.recipeBook = r;
+        this.recipeBooks = recipeBooks;
         this.digitalRecipeBookAppGUI = drB;
         initializeButtons();
         initializePanel();
@@ -24,13 +26,13 @@ public class MenuButtons extends JPanel {
         setPreferredSize(new Dimension(110, 45));
         setLayout(new FlowLayout(FlowLayout.CENTER, 20, 15));
         setVisible(true);
-        setBackground(new Color(023047));
+        setBackground(new Color(129,52,5));
     }
 
     private void initializeButtons() {
-        add(new LoadButton(this.recipeBook, this.digitalRecipeBookAppGUI));
-        add(new AddButton(this.recipeBook, this.digitalRecipeBookAppGUI));
-        add(new RemoveButton(this.recipeBook, this.digitalRecipeBookAppGUI));
-        add(new SaveButton(this.recipeBook));
+        add(new LoadButton(recipeBook, recipeBooks,  digitalRecipeBookAppGUI));
+        add(new AddButton(recipeBook, digitalRecipeBookAppGUI));
+        add(new RemoveButton(recipeBook, digitalRecipeBookAppGUI));
+        add(new SaveButton(recipeBooks));
     }
 }

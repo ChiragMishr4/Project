@@ -12,15 +12,15 @@ import java.io.FileNotFoundException;
 public class SaveButton extends JButton implements ActionListener {
     private static final String json_book = "./data/recipes.json";
     private JsonWriter jsonWriter;
-    private RecipeBook recipeBook;
+    private RecipeBooks recipeBook;
 
-    public SaveButton(RecipeBook r) {
+    public SaveButton(RecipeBooks r) {
         this.recipeBook = r;
         jsonWriter = new JsonWriter(json_book);
         this.addActionListener(this);
         setText("Save Recipes");
         setFocusable(false);
-        setFont(new Font("Arial", Font.BOLD, 12));
+        setFont(new Font("Arial", Font.BOLD, 18));
     }
 
     @Override

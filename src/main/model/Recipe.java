@@ -6,6 +6,7 @@ import persistence.Writable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 //Represents a Recipe having a name, cuisine, list of ingredients and list of cooking instructions.
 public class Recipe implements Writable {
@@ -123,5 +124,41 @@ public class Recipe implements Writable {
             jsonArray.put(c.toJson());
         }
         return jsonArray;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        Recipe recipe = (Recipe) o;
+
+        if (!Objects.equals(ingredients, recipe.ingredients)) {
+            return false;
+        }
+        if (!Objects.equals(cookingInstruction, recipe.cookingInstruction)) {
+            return false;
+        }
+        if (!Objects.equals(instructions, recipe.instructions)) {
+            return false;
+        }
+        if (!cuisine.equals(recipe.cuisine)) {
+            return false;
+        }
+        return name.equals(recipe.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = ingredients != null ? ingredients.hashCode() : 0;
+        result = 31 * result + (cookingInstruction != null ? cookingInstruction.hashCode() : 0);
+        result = 31 * result + (instructions != null ? instructions.hashCode() : 0);
+        result = 31 * result + cuisine.hashCode();
+        result = 31 * result + name.hashCode();
+        return result;
     }
 }

@@ -18,11 +18,12 @@ public class RemoveButton extends JButton implements ActionListener {
 
     public RemoveButton(RecipeBook r, DigitalRecipeBookAppGUI drB) {
         this.digitalRecipeBookAppGUI = drB;
+        recipes = new ArrayList<>();
         this.recipeBook = r;
         this.addActionListener(this);
         setText("Remove Recipe");
         setFocusable(false);
-        setFont(new Font("Arial", Font.BOLD, 12));
+        setFont(new Font("Arial", Font.BOLD, 18));
     }
 
     @Override

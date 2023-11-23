@@ -12,10 +12,20 @@ import java.util.List;
 public class RecipeBook implements Writable {
 
     private ArrayList<Recipe> recipes;
+    private String name;
 
     //EFFECTS : constructs a Recipe object.
-    public RecipeBook() {
+    public RecipeBook(String name) {
         recipes = new ArrayList<>();
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String s) {
+        name = s;
     }
 
     //EFFECTS : returns list of all recipes.
@@ -52,6 +62,7 @@ public class RecipeBook implements Writable {
     //EFFECTS: writes RecipeBook to json
     public JSONObject toJson() {
         JSONObject json = new JSONObject();
+        json.put("name", name);
         json.put("recipes", recipesToJson());
         return json;
     }

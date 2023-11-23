@@ -1,9 +1,21 @@
-{"recipes": [{
-    "instructions": [{
-        "instruction": "boil water",
-        "id": 0
+{"recipeBooks": [{
+    "recipes": [{
+        "instructions": [
+            {
+                "instruction": "heat oil",
+                "id": 1
+            },
+            {
+                "instruction": "cook chicken",
+                "id": 2
+            }
+        ],
+        "name": "butter chicken",
+        "cuisine": "indian",
+        "ingredients": [
+            "butter",
+            "chicken"
+        ]
     }],
-    "name": "abc",
-    "cuisine": "def",
-    "ingredients": ["water"]
+    "name": "Digital Recipe Book"
 }]}
