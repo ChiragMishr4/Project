@@ -13,7 +13,7 @@ public class RecipeBookTest {
 
     @BeforeEach
     void runBefore() {
-        testBook = new RecipeBook();
+        testBook = new RecipeBook("Digital Recipe Book");
         r1 = new Recipe("abc", "def");
         r2 = new Recipe("Pasta", "Italian");
     }
@@ -21,6 +21,7 @@ public class RecipeBookTest {
     @Test
     void testConstructor() {
         assertEquals(0, testBook.getRecipes().size());
+        assertEquals("Digital Recipe Book", testBook.getName());
     }
 
     @Test

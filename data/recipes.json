@@ -1,21 +1,4 @@
 {"recipeBooks": [{
-    "recipes": [{
-        "instructions": [
-            {
-                "instruction": "heat oil",
-                "id": 1
-            },
-            {
-                "instruction": "cook chicken",
-                "id": 2
-            }
-        ],
-        "name": "butter chicken",
-        "cuisine": "indian",
-        "ingredients": [
-            "butter",
-            "chicken"
-        ]
-    }],
+    "recipes": [],
     "name": "Digital Recipe Book"
 }]}

@@ -1,20 +1,23 @@
-{"recipes": [
-    {
-        "instructions": [{
-            "instruction": "boil water",
-            "id": 1
-        }],
-        "name": "abc",
-        "cuisine": "def",
-        "ingredients": ["water"]
-    },
-    {
-        "instructions": [{
-            "instruction": "add pasta",
-            "id": 2
-        }],
-        "name": "def",
-        "cuisine": "xyz",
-        "ingredients": ["pasta"]
-    }
-]}
+{"recipeBooks": [{
+    "recipes": [
+        {
+            "instructions": [{
+                "instruction": "boil water",
+                "id": 1
+            }],
+            "name": "abc",
+            "cuisine": "def",
+            "ingredients": ["water"]
+        },
+        {
+            "instructions": [{
+                "instruction": "add pasta",
+                "id": 2
+            }],
+            "name": "def",
+            "cuisine": "xyz",
+            "ingredients": ["pasta"]
+        }
+    ],
+    "name": "abc"
+}]}

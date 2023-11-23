@@ -1,14 +1,23 @@
-{"recipes": [
-  {
-    "instructions": [],
-    "name": "abc",
-    "cuisine": "def",
-    "ingredients": []
-  },
-  {
-    "instructions": [],
-    "name": "def",
-    "cuisine": "xyz",
-    "ingredients": []
-  }
-]}
+{"recipeBooks": [{
+  "recipes": [
+    {
+      "instructions": [{
+        "instruction": "boil",
+        "id": 1
+      }],
+      "name": "abc",
+      "cuisine": "def",
+      "ingredients": ["water"]
+    },
+    {
+      "instructions": [{
+        "instruction": "add salt",
+        "id": 1
+      }],
+      "name": "def",
+      "cuisine": "xyz",
+      "ingredients": ["salt"]
+    }
+  ],
+  "name": "Digital Recipe Book"
+}]}

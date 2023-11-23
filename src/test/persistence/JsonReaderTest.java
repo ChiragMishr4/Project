@@ -17,7 +17,7 @@ public class JsonReaderTest extends JsonTest{
     void testReaderNonExistentFile() {
         JsonReader reader = new JsonReader("./data/noSuchFile.json");
         try {
-            RecipeBook wr = reader.read();
+            RecipeBooks wr = reader.read();
             fail("IOException expected");
         } catch (IOException e) {
             // pass
@@ -28,8 +28,8 @@ public class JsonReaderTest extends JsonTest{
     void testReaderEmptyWorkRoom() {
         JsonReader reader = new JsonReader("./data/testReaderEmptyFile.json");
         try {
-            RecipeBook wr = reader.read();
-            assertEquals(0, wr.getRecipes().size());
+            RecipeBooks wr = reader.read();
+            assertEquals(0, wr.getRecipeBooks().get(0).getRecipes().size());
         } catch (IOException e) {
             fail("Couldn't read from file");
         }
@@ -42,8 +42,8 @@ public class JsonReaderTest extends JsonTest{
         recipes.add(new Recipe("abc", "def"));
         recipes.add(new Recipe("def", "xyz"));
         try {
-            RecipeBook wr = reader.read();
-            List<Recipe> recipes1 = wr.getRecipes();
+            RecipeBooks wr = reader.read();
+            List<Recipe> recipes1 = wr.getRecipeBooks().get(0).getRecipes();
             assertEquals(2, recipes1.size());
             checkRecipe("abc", recipes1.get(0), "def");
             recipes.remove(recipes.get(0));

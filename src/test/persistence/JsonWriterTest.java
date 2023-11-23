@@ -17,7 +17,7 @@ public class JsonWriterTest extends JsonTest {
     @Test
     void testWriterInvalidFile() {
         try {
-            RecipeBook wr = new RecipeBook();
+            RecipeBooks wr = new RecipeBooks();
             JsonWriter writer = new JsonWriter("./data/my\0illegal:fileName.json");
             writer.open();
             fail("IOException was expected");
@@ -29,7 +29,7 @@ public class JsonWriterTest extends JsonTest {
     @Test
     void testWriterEmptyWorkroom() {
         try {
-            RecipeBook wr = new RecipeBook();
+            RecipeBooks wr = new RecipeBooks();
             JsonWriter writer = new JsonWriter("./data/testWriterEmptyFile.json");
             writer.open();
             writer.write(wr);
@@ -37,7 +37,7 @@ public class JsonWriterTest extends JsonTest {
 
             JsonReader reader = new JsonReader("./data/testWriterEmptyFile.json");
             wr = reader.read();
-            assertEquals(0, wr.getRecipes().size());
+            assertEquals(0, wr.getRecipeBooks().size());
         } catch (IOException e) {
             fail("Exception should not have been thrown");
         }
@@ -46,15 +46,17 @@ public class JsonWriterTest extends JsonTest {
     @Test
     void testWriterGeneral() {
         try {
-            RecipeBook wr = new RecipeBook();
+            RecipeBooks wr = new RecipeBooks();
+            RecipeBook recipeBook = new RecipeBook("abc");
+            wr.addRecipeBook(recipeBook);
             Recipe r1 = new Recipe("abc", "def");
             Recipe r2 = new Recipe("def", "xyz");
             r1.addIngredient("water");
             r2.addIngredient("pasta");
             r1.addCookingInstruction("boil water", 1);
             r2.addCookingInstruction("add pasta", 2);
-            wr.addRecipe(r1);
-            wr.addRecipe(r2);
+            wr.getRecipeBooks().get(0).addRecipe(r1);
+            wr.getRecipeBooks().get(0).addRecipe(r2);
             ArrayList<Recipe> recipes = new ArrayList<>();
             ArrayList<CookingInstructions> instructions = new ArrayList<>();
             ArrayList<String> ingredients = new ArrayList<>();
@@ -71,7 +73,7 @@ public class JsonWriterTest extends JsonTest {
 
             JsonReader reader = new JsonReader("./data/testWriterGeneral.json");
             wr = reader.read();
-            List<Recipe> recipes1 = wr.getRecipes();
+            List<Recipe> recipes1 = wr.getRecipeBooks().get(0).getRecipes();
             assertEquals("boil water", recipes1.get(0).getCookingInstructions().get(0).getInstruction());
             assertEquals("add pasta", recipes1.get(1).getCookingInstructions().get(0).getInstruction());
             assertEquals("water", recipes1.get(0).getIngredients().get(0));
