@@ -8,11 +8,15 @@ import static org.junit.jupiter.api.Assertions.*;
 public class RecipeTest {
     private Recipe r1;
     private Recipe r2;
+    private Recipe r3;
+    private Recipe r4;
 
     @BeforeEach
     void runBefore() {
         r1 = new Recipe("abc", "def");
         r2 = new Recipe("abc", "def");
+        r3 = new Recipe("def", "xyz");
+        r4 = new Recipe("def", "xyz");
     }
 
     @Test
@@ -139,6 +143,8 @@ public class RecipeTest {
     @Test
     void testEqualsIngredients() {
         assertTrue(r1.equals(r2));
+        RecipeBook rB = new RecipeBook("abc");
+        assertFalse(r1.equals(rB));
         r1.addIngredient("water");
         r2.addIngredient("salt");
         assertFalse(r1.equals(r2));
@@ -153,13 +159,19 @@ public class RecipeTest {
         r1.addCookingInstruction("Boil Pasta", 2);
         r2.addCookingInstruction("Boil Pasta", 3);
         assertFalse(r1.equals(r2));
-        r1.addCookingInstruction("abc", 3);
-        r2.addCookingInstruction("def", 3);
-        assertFalse(r1.equals(r2));
+        r3.addCookingInstruction("abc", 3);
+        r4.addCookingInstruction("def", 3);
+        assertFalse(r3.equals(r4));
+        assertFalse(r1.getCookingInstructions().equals(r2.getCookingInstructions()));
     }
 
     @Test
     void testHashcode() {
+        r1.addCookingInstruction("Boil Water", 1);
+        r2.addCookingInstruction("Boil Water", 1);
+        r1.addIngredient("water");
+        r2.addIngredient("water");
         assertTrue(r1.hashCode() == r2.hashCode());
+        assertTrue(r3.hashCode() == r4.hashCode());
     }
 }

@@ -25,6 +25,13 @@ public class RecipeBookTest {
     }
 
     @Test
+    void testSetName() {
+        assertEquals("Digital Recipe Book", testBook.getName());
+        testBook.setName("abc");
+        assertEquals("abc", testBook.getName());
+    }
+
+    @Test
     void testAddRecipeOnce() {
         testBook.addRecipe(r1);
         assertEquals(1, testBook.getRecipes().size());

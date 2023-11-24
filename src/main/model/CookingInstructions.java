@@ -60,7 +60,7 @@ public class CookingInstructions implements Writable {
 
     @Override
     public int hashCode() {
-        int result = instruction != null ? instruction.hashCode() : 0;
+        int result = instruction.hashCode();
         result = 31 * result + id;
         return result;
     }
