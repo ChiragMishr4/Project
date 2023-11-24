@@ -5,6 +5,7 @@ import persistence.Writable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 //Represents cooking instructions with an instruction and an id.
 public class CookingInstructions implements Writable {
@@ -38,5 +39,29 @@ public class CookingInstructions implements Writable {
         jsonObject.put("id", id);
 
         return jsonObject;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+
+        CookingInstructions that = (CookingInstructions) o;
+
+        if (id != that.id) {
+            return false;
+        }
+        return Objects.equals(instruction, that.instruction);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = instruction != null ? instruction.hashCode() : 0;
+        result = 31 * result + id;
+        return result;
     }
 }

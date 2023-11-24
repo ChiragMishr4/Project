@@ -7,10 +7,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class RecipeTest {
     private Recipe r1;
+    private Recipe r2;
 
     @BeforeEach
     void runBefore() {
         r1 = new Recipe("abc", "def");
+        r2 = new Recipe("abc", "def");
     }
 
     @Test
@@ -132,5 +134,32 @@ public class RecipeTest {
         assertTrue(r1.getCookingInstructions().isEmpty());
         r1.removeCookingInstruction(3);
         assertTrue(r1.getCookingInstructions().isEmpty());
+    }
+
+    @Test
+    void testEqualsIngredients() {
+        assertTrue(r1.equals(r2));
+        r1.addIngredient("water");
+        r2.addIngredient("salt");
+        assertFalse(r1.equals(r2));
+    }
+
+    @Test
+    void testEqualsInstructions() {
+        assertTrue(r1.equals(r2));
+        r1.addCookingInstruction("Boil Water", 1);
+        r2.addCookingInstruction("Boil Water", 1);
+        assertTrue(r1.equals(r2));
+        r1.addCookingInstruction("Boil Pasta", 2);
+        r2.addCookingInstruction("Boil Pasta", 3);
+        assertFalse(r1.equals(r2));
+        r1.addCookingInstruction("abc", 3);
+        r2.addCookingInstruction("def", 3);
+        assertFalse(r1.equals(r2));
+    }
+
+    @Test
+    void testHashcode() {
+        assertTrue(r1.hashCode() == r2.hashCode());
     }
 }
