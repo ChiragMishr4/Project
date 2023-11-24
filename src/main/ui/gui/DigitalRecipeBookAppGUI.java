@@ -38,10 +38,10 @@ public class DigitalRecipeBookAppGUI extends JFrame {
         panel.setLayout(new GridLayout(3,3,20,25));
         panel.setBackground(new Color(194, 197, 187));
         add(panel, BorderLayout.CENTER);
-        head.setBackground(new Color(69, 80, 59));
+        head.setBackground(new Color(129,52,5));
         add(head, BorderLayout.NORTH);
         header.setFont(new Font("Sans-serif", Font.BOLD, 25));
-        ImageIcon logo = new ImageIcon("./data/newLogo.png");
+        ImageIcon logo = new ImageIcon("./data/meal.png");
         header.setIcon(logo);
         head.add(header);
         setVisible(true);

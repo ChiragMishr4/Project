@@ -26,7 +26,7 @@ public class MenuButtons extends JPanel {
         setPreferredSize(new Dimension(110, 45));
         setLayout(new FlowLayout(FlowLayout.CENTER, 20, 15));
         setVisible(true);
-        setBackground(new Color(129,52,5));
+        setBackground(new Color(69, 80, 59));
     }
 
     private void initializeButtons() {

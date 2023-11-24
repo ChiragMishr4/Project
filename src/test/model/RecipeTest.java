@@ -160,8 +160,8 @@ public class RecipeTest {
         r2.addCookingInstruction("Boil Pasta", 3);
         assertFalse(r1.equals(r2));
         r3.addCookingInstruction("abc", 3);
-        r4.addCookingInstruction("def", 3);
-        assertFalse(r3.equals(r4));
+        r4.addCookingInstruction("abc", 3);
+        assertTrue(r3.equals(r4));
         assertFalse(r1.getCookingInstructions().equals(r2.getCookingInstructions()));
     }
 

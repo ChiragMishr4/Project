@@ -22,3 +22,13 @@ frustration of forgetting crucial cooking steps.
 - As a user, I want to be able to save my current recipes to file.
 - As a user, I want to be able to load my previous recipes from file.
 
+## *Instructions for Grader*
+
+- You can generate the first required action related to the user story "adding multiple Xs to a Y"
+  by clicking the "Add" button and answering the prompts.
+- You can generate the second required action related to the user story "adding multiple Xs to a Y"
+  by clicking the "Remove" button and answering the prompt.
+- You can locate my visual component by looking at the app logo, which is present in the JFrame.
+- You can save the state of my application by clicking the Save button.
+- You can reload the state of my application by clicking the Load button.
+
