@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+//Represents the "Add" button on the JFrame.
 public class AddButton extends JButton implements ActionListener {
     private RecipeBook recipeBook;
     private String cuisine;
@@ -22,6 +23,9 @@ public class AddButton extends JButton implements ActionListener {
     private boolean keepGoing;
     int idGen = 0;
 
+
+    //MODIFIES: this
+    //EFFECTS: Creates the add food button
     public AddButton(RecipeBook r, DigitalRecipeBookAppGUI drB) {
         this.digitalRecipeBook = drB;
         this.recipeBook = r;
@@ -31,6 +35,8 @@ public class AddButton extends JButton implements ActionListener {
         setFont(new Font("Arial", Font.BOLD, 18));
     }
 
+    //MODIFIES: this
+    //EFFECTS: takes in user input
     @Override
     public void actionPerformed(ActionEvent e) {
         String s = JOptionPane.showInputDialog("Enter the name of your dish!");
@@ -54,6 +60,8 @@ public class AddButton extends JButton implements ActionListener {
         recipeCreator(r);
     }
 
+    //MODIFIES: this
+    //EFFECTS: takes input from user
     public void addIngredients(Recipe r) {
         do {
             String i = JOptionPane.showInputDialog("Enter the name of the ingredient: ");
@@ -67,6 +75,8 @@ public class AddButton extends JButton implements ActionListener {
         } while (keepGoing);
     }
 
+    //MODIFIES: this
+    //EFFECTS: takes input from user
     public void addCookingInstructions(Recipe r) {
         boolean keepGoing1 = true;
         do {
@@ -82,6 +92,8 @@ public class AddButton extends JButton implements ActionListener {
         } while (keepGoing1);
     }
 
+    //MODIFIES: this
+    //EFFECTS: Creates a new Recipe and adds it to the RecipeBook
     public void recipeCreator(Recipe r) {
         recipeBook.addRecipe(r);
         recipeBooksList.add(recipeBook);

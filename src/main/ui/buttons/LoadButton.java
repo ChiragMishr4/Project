@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+//Represents the "Load" Button on the JFrame.
 public class LoadButton extends JButton implements ActionListener {
 
     private static final String json_book = "./data/recipes.json";
@@ -22,6 +22,8 @@ public class LoadButton extends JButton implements ActionListener {
     private JsonReader jsonReader;
     private List<RecipeBook> recipesList = new ArrayList<>();
 
+    //MODIFIES: this
+    //EFFECTS: Creates the load button and adds it to the panel.
     public LoadButton(RecipeBook r, RecipeBooks recipeBooks, DigitalRecipeBookAppGUI drB) {
         this.digitalRecipeBookGUI = drB;
         this.recipeBook = r;
@@ -33,6 +35,8 @@ public class LoadButton extends JButton implements ActionListener {
         setFont(new Font("Arial", Font.BOLD, 18));
     }
 
+    //MODIFIES: this
+    //EFFECTS: Loads RecipeBooks from the file.
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

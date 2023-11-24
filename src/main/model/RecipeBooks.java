@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+//Represents a list of RecipeBook.
 public class RecipeBooks implements Writable {
     private List<RecipeBook> recipeBooks;
 
@@ -15,10 +16,13 @@ public class RecipeBooks implements Writable {
         recipeBooks = new ArrayList<>();
     }
 
+    //MODIFIES: this
+    //EFFECTS: adds RecipeBook to the list of RecipeBooks.
     public void addRecipeBook(RecipeBook r) {
         recipeBooks.add(r);
     }
 
+    //EFFECTS: returns a list of all RecipeBooks.
     public List<RecipeBook> getRecipeBooks() {
         return Collections.unmodifiableList(recipeBooks);
     }

@@ -9,11 +9,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 
+
+//Represents the Save Button on the JFrame.`
 public class SaveButton extends JButton implements ActionListener {
     private static final String json_book = "./data/recipes.json";
     private JsonWriter jsonWriter;
     private RecipeBooks recipeBook;
 
+    //MODIFIES: this
+    //EFFECTS: Creates the save button and adds it to the panel.
     public SaveButton(RecipeBooks r) {
         this.recipeBook = r;
         jsonWriter = new JsonWriter(json_book);
@@ -23,6 +27,8 @@ public class SaveButton extends JButton implements ActionListener {
         setFont(new Font("Arial", Font.BOLD, 18));
     }
 
+    //MODIFIES: this
+    //EFFECTS: Saves RecipeBooks to file.
     @Override
     public void actionPerformed(ActionEvent e) {
         try {

@@ -10,12 +10,16 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+//Represents the "Remove" button on the JFrame.
 public class RemoveButton extends JButton implements ActionListener {
     private static final String json_book = "./data/recipes.json";
     private RecipeBook recipeBook;
     private DigitalRecipeBookAppGUI digitalRecipeBookAppGUI;
     private ArrayList<Recipe> recipes;
 
+
+    //MODIFIES: this
+    //EFFECTS: Creates the Remove button and adds it to panel.
     public RemoveButton(RecipeBook r, DigitalRecipeBookAppGUI drB) {
         this.digitalRecipeBookAppGUI = drB;
         recipes = new ArrayList<>();
@@ -26,6 +30,8 @@ public class RemoveButton extends JButton implements ActionListener {
         setFont(new Font("Arial", Font.BOLD, 18));
     }
 
+    //MODIFIES: this
+    //EFFECTS: Removes Recipes from the panel.
     @Override
     public void actionPerformed(ActionEvent e) {
         String s = JOptionPane.showInputDialog("Enter the name of the recipe you would like to remove");

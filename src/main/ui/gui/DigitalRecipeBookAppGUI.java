@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+//Represents the DigitalRecipeBookApp Interface.
 public class DigitalRecipeBookAppGUI extends JFrame {
 
     private RecipeBook recipeBook;
@@ -19,6 +20,8 @@ public class DigitalRecipeBookAppGUI extends JFrame {
     private JLabel header = new JLabel("Digital Recipe Book");
     private MiddlePanel panel;
 
+
+    //EFFECTS: Runs the DigitalRecipeBook application.
     public DigitalRecipeBookAppGUI() {
         super("Digital Recipe Book");
         setSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize()));
@@ -31,6 +34,8 @@ public class DigitalRecipeBookAppGUI extends JFrame {
         initializeMiddlePanel();
     }
 
+    //MODIFIES: this
+    //EFFECTS: Creates the middle panel of the Frame.
     public void initializeMiddlePanel() {
         panel = new MiddlePanel();
         panel.setBackground(Color.darkGray);
@@ -71,6 +76,7 @@ public class DigitalRecipeBookAppGUI extends JFrame {
         setVisible(true);
     }
 
+    //EFFECTS: Displays the information of the Recipe on the Panel.
     private void showDetails(Recipe r) {
         JPanel detailsPanel = new JPanel();
         detailsPanel.setLayout(new BoxLayout(detailsPanel, BoxLayout.Y_AXIS));
