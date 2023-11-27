@@ -20,6 +20,7 @@ public class RecipeBooks implements Writable {
     //EFFECTS: adds RecipeBook to the list of RecipeBooks.
     public void addRecipeBook(RecipeBook r) {
         recipeBooks.add(r);
+        EventLog.getInstance().logEvent(new Event("Added RecipeBook : " + r.getName()));
     }
 
     //EFFECTS: returns a list of all RecipeBooks.

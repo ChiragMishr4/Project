@@ -1,6 +1,7 @@
 package ui.gui;
 
 import model.*;
+import model.Event;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,8 +26,14 @@ public class DigitalRecipeBookAppGUI extends JFrame {
     public DigitalRecipeBookAppGUI() {
         super("Digital Recipe Book");
         setSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize()));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         String s = "Digital Recipe Book";
+        addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent e) {
+                handleClosing();
+            }
+        });
         recipeBook = new RecipeBook(s);
         recipeBooks = new RecipeBooks();
         recipeBooks.addRecipeBook(recipeBook);
@@ -50,6 +57,14 @@ public class DigitalRecipeBookAppGUI extends JFrame {
         header.setIcon(logo);
         head.add(header);
         setVisible(true);
+    }
+
+    private void handleClosing() {
+        EventLog eventLog = EventLog.getInstance();
+        for (Event e : eventLog) {
+            System.out.println(e.getDescription());
+        }
+        System.exit(0);
     }
 
 

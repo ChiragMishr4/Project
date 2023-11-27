@@ -42,6 +42,7 @@ public class RemoveButton extends JButton implements ActionListener {
                 recipes.remove(r);
                 System.out.println(recipes);
                 digitalRecipeBookAppGUI.updatePanel(recipes);
+                r.printLog(r);
             }
         }
     }

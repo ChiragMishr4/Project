@@ -22,6 +22,7 @@ public class Recipe implements Writable {
         this.cuisine = cuisine;
         ingredients = new ArrayList<>();
         instructions = new ArrayList<>();
+        EventLog.getInstance().logEvent(new Event("Added Recipe : " + name));
     }
 
     // MODIFIES : this
@@ -91,6 +92,10 @@ public class Recipe implements Writable {
                 break;
             }
         }
+    }
+
+    public void printLog(Recipe r) {
+        EventLog.getInstance().logEvent(new Event("Removed Recipe :" + r.getName()));
     }
 
 
