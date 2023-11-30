@@ -32,3 +32,16 @@ frustration of forgetting crucial cooking steps.
 - You can save the state of my application by clicking the Save button.
 - You can reload the state of my application by clicking the Load button.
 
+## *Phase 4: Task 2*
+
+![img.png](img.png)
+
+## *Phase 4 : Task 3*
+
+I believe that my coding ability has really been put to the test while creating this project. One thing I would
+to improve about the project would be to have more readable code, towards the end of the project my code becomes
+confusing and not so organized, If I had more time I would fix this.
+
+I would also like to incorporate the Observer Design Pattern, as I believe it is relevant everytime I update the 
+panel when a new Recipe is added. This goes hand in hand with making my code readable and industry ready.
+
